@@ -4,10 +4,10 @@ var canvas = new Canvas(),
     numStars = 400,
     // objects
     cursor = new Star(20, "#000099"),
-    snow = new Snow(canvas, 100, 100, "#f5f5f5"),
+    snow = new Snow(canvas, 100, 100, "#f0f0f0"),
     snow2 = new Snow(canvas, 100, 100, "#cccccc"),
     snowfall = new Snowfall(numStars, canvas, pointer),
-    snowman = new Snowman(30, 7),
+    snowman = new Snowman(40, 7, 230, 10),
     tree = new Tree({
         depth: 5,
         length: 80, 
@@ -63,7 +63,7 @@ function calc() {
     snow2.magnitudeY = per * 250;
     snow2.calc();
 
-    snowman.move(0.2 * w, h - 1.5*groundHeight);
+    snowman.move(0.2 * w, h - groundHeight);
 }
 
 function draw(canvas) {

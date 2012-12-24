@@ -1,9 +1,9 @@
-var Snowman = function(size, decay, color, segments) {
+var Snowman = function(size, decay, color, colorDecay, segments) {
 	this.size = size;
 	this.segments = segments || 3;
 	this.decay = decay || 5;
-	this.color = color || 225;
-	this.colorDecay = 15;
+	this.color = color || 235;
+	this.colorDecay = colorDecay || 10;
 
 	this.eyeColor = "#000000";
 	this.noseColor = "#FF9640";
