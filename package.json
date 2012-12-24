@@ -1,0 +1,12 @@
+{
+    "author": "John Roepke <john@justjohn.us> (http://john.sh/)",
+	"name": "wonderland",
+    "description": "HTML5 Canvas Winter Scene",
+	"version": "0.0.1",
+	"dependencies": {
+	},
+	"engines": {
+		"node": "0.8.x",
+		"npm": "1.1.x"
+	}
+}

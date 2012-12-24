@@ -6,11 +6,9 @@ var Star = function(radius, color) {
 
 Star.prototype = new Drawable();
 
-Star.prototype.render = function(ctx, x, y) {
-    var offset = this.radius/2;
-    
+Star.prototype.render = function(ctx, x, y) {    
     ctx.beginPath();
-    ctx.arc(x-offset, y-offset, this.radius, 0, 2 * Math.PI, false);
+    ctx.arc(x, y, this.radius, 0, 2 * Math.PI, false);
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
