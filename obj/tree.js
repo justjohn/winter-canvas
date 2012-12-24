@@ -43,11 +43,6 @@ Tree.prototype.segment = function(ctx, x, y, angle, width, color, snowy, depth) 
 	}
 };
 
-Tree.prototype.makeColor = function(color) {
-	var hex = color.toString(16);
-	return "#"+hex+hex+hex;
-};
-
 Tree.prototype.isSnowy = function() {
 	return Math.random()>0.8;
 };

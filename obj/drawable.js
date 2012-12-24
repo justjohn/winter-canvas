@@ -6,7 +6,7 @@ var Drawable = function() {
 
 Drawable.prototype.setX = function(x) {
     this.x = x;
-    
+
     return this;
 };
 
@@ -27,4 +27,9 @@ Drawable.prototype.draw = function(ctx) {
     this.render(ctx, this.x, this.y);
 
     return this;
+};
+
+Drawable.prototype.makeColor = function(color) {
+	var hex = color.toString(16);
+	return "#"+hex+hex+hex;
 };

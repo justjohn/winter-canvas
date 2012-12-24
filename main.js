@@ -7,6 +7,7 @@ var canvas = new Canvas(),
     snow = new Snow(canvas, 100, 100, "#f5f5f5"),
     snow2 = new Snow(canvas, 100, 100, "#cccccc"),
     snowfall = new Snowfall(numStars, canvas, pointer),
+    snowman = new Snowman(30, 7),
     tree = new Tree({
         depth: 5,
         length: 80, 
@@ -61,6 +62,8 @@ function calc() {
     snow2.magnitudeX = per * 500;
     snow2.magnitudeY = per * 250;
     snow2.calc();
+
+    snowman.move(0.2 * w, h - 1.5*groundHeight);
 }
 
 function draw(canvas) {
@@ -73,6 +76,8 @@ function draw(canvas) {
 
     snow.draw(ctx);
     tree.draw(ctx);
+
+    snowman.draw(ctx);
 
     cursor.draw(ctx);
 

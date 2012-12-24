@@ -45,3 +45,4 @@ Snow.prototype.render = function(ctx, x, y) {
     //(new Star(5, "#0000ff")).move(this.cpx1, this.cpy1).draw(ctx);
     //(new Star(5, "#00ff00")).move(this.cpx2, this.cpy2).draw(ctx);
 };
+
