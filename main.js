@@ -69,17 +69,17 @@ function calc() {
 function draw(canvas) {
     var ctx = canvas.ctx;
     
-    snowfall.draw(ctx);
-    
     snow2.draw(ctx);
     tree2.draw(ctx);
+
+    snowfall.draw(ctx);
 
     snow.draw(ctx);
     tree.draw(ctx);
 
     snowman.draw(ctx);
 
-    cursor.draw(ctx);
+    // cursor.draw(ctx);
 
     pointer.reset();
 }
