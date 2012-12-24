@@ -2,6 +2,7 @@ var canvas = new Canvas(),
     pointer = new Pointer(),
     loop = new Loop(canvas),
     numStars = 400,
+    t = 0,
     // objects
     cursor = new Star(20, "#000099"),
     snow = new Snow(canvas, 100, 100, "#f0f0f0"),
@@ -35,8 +36,13 @@ loop.register(function mainloop(canvas) {
 });
 
 function calc() {
+    t++;
+
     var h = canvas.height(),
         w = canvas.width();
+
+    var wind = Math.sin(t/40)/3 + 0.3,
+        wind2 = Math.cos(t/40)/2.5 + 1/1.5;
 
     var per = 0.65, //pointer.x/canvas.width();
         groundHeight = 118,
@@ -48,8 +54,8 @@ function calc() {
     tree2.move(0.75 * w, h - groundHeight/1.5);
     tree.move(0.35 * w, h - groundHeight);
 
-    tree2.blow(-2);
-    tree.blow(2);
+    tree2.blow(-2 + wind2);
+    tree.blow(2 + wind);
 
     snowfall.calc();
 
