@@ -6,13 +6,18 @@
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
         <title>Winter Wonderland</title>
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="styles.css" />
     </head>
 
     <body id="body">
         <canvas id="canvas" width="400" height="500"></canvas>
-        
+        <ul class="bottom_bar">
+            <li class="newtab"><a href="#" title="New Tab Page"></a></li>
+            <li class="weather"></li>
+            <li class="time"></li>
+        </ul>
+
+        <script type="text/javascript" src="vendor/zepto.min.js"></script>
         <script type="text/javascript" src="lib/loop.js"></script>
         <script type="text/javascript" src="lib/canvas.js"></script>
         <script type="text/javascript" src="lib/pointer.js"></script>
@@ -22,6 +27,8 @@
         <script type="text/javascript" src="obj/snowman.js"></script>
         <script type="text/javascript" src="obj/snowfall.js"></script>
         <script type="text/javascript" src="obj/tree.js"></script>
+        <script type="text/javascript" src="ui/ui.js"></script>
+        <script type="text/javascript" src="ui/clock.js"></script>
         <script type="text/javascript" src="main.js"></script>
     </body>
 </html>

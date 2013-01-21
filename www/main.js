@@ -1,7 +1,7 @@
 var canvas = new Canvas(),
     pointer = new Pointer(),
     loop = new Loop(canvas),
-    numStars = 400,
+    numStars = 800,
     t = 0,
     // objects
     cursor = new Star(20, "#000099"),
@@ -10,26 +10,28 @@ var canvas = new Canvas(),
     snowfall = new Snowfall(numStars, canvas, pointer),
     snowman = new Snowman(40, 7, 230, 10),
     tree = new Tree({
-        depth: 5,
-        length: 80, 
-        spread: 25, 
-        width: 15,
-        color: 255,
+        depth: 6,
+        length: 110,
+        spread: 25,
+        width: 20,
+        color: 215,
         colorDecay: 10
     }),
     tree2 = new Tree({
         depth: 5,
-        length: 50, 
-        spread: 25, 
+        length: 75,
+        spread: 25,
         width: 15,
-        color: 190,
+        color: 150,
         colorDecay: 20
-    });
+    }),
+    App = {};
 
 // Setup environment and loop
 pointer.bind(canvas.el);
 
 loop.register(function mainloop(canvas) {
+    updateUi();
     calc();
     canvas.clear();
     draw(canvas);
@@ -63,7 +65,7 @@ function calc() {
     snow.magnitudeX = per * 500;
     snow.magnitudeY = -per * 250;
     snow.calc();
-    
+
     snow2.move(0, y + 25);
     snow2.magnitudeX = per * 500;
     snow2.magnitudeY = per * 250;
@@ -74,7 +76,7 @@ function calc() {
 
 function draw(canvas) {
     var ctx = canvas.ctx;
-    
+
     snow2.draw(ctx);
     tree2.draw(ctx);
 
@@ -92,17 +94,34 @@ function draw(canvas) {
 
 function init() {
     snowfall.init();
+
+    setupUi();
 }
 
-$(function() {
-    var $win = $(window);
-    canvas.resize($win.width(), $win.height());
-    $win.on({
-        resize: function() {
-            canvas.resize($win.width(), $win.height());
-        }
-    });
-    
-    init();
-    loop.start();
+var $win = $(window);
+canvas.resize($win.width(), $win.height());
+$win.on({
+    resize: function() {
+        canvas.resize($win.width(), $win.height());
+    }
 });
+
+init();
+loop.start();
+
+function wrap(tag, cls, content) {
+    return '<'+tag+' class="'+cls+'">'+content+'</'+tag+'>';
+}
+
+function setupUi() {
+    $(".newtab a").click(function() {
+        chrome.tabs.update({url:"chrome-internal://newtab/"});
+    });
+
+    App.clock = new Clock(".time");
+    App.weather = $(".weather");
+}
+
+function updateUi() {
+    App.clock.update();
+}
